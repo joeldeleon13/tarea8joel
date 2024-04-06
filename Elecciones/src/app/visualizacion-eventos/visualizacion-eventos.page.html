@@ -1,0 +1,40 @@
+<!-- visualizacion-eventos.page.html -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Visualización de Eventos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let evento of eventos">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="evento.imagen"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ evento.titulo }}</h2>
+        <p>Fecha: {{ evento.fecha }}</p>
+        <p>Descripción: {{ evento.descripcion }}</p>
+        <!-- Agrega más detalles del evento aquí -->
+        <ion-button expand="block" (click)="verDetalle(evento)">Ver Detalle</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-card *ngIf="eventoSeleccionado">
+    <ion-card-header>
+      {{ eventoSeleccionado.titulo }}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-img [src]="eventoSeleccionado.imagen"></ion-img>
+      <p>Fecha: {{ eventoSeleccionado.fecha }}</p>
+      <p>Descripción: {{ eventoSeleccionado.descripcion }}</p>
+      <!-- Agrega más detalles del evento aquí -->
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "Elecciones",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
